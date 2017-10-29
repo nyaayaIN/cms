@@ -8,8 +8,8 @@ exports = module.exports = function (req, res) {
 	// Set locals
 	locals.section = 'topic';
 	locals.filters = {
-		topic: req.params.topic,
-		explanation: req.params.explanation
+		topic: req.params.topic || false,
+		explanation: req.params.explanation || false
 
 	};
 	locals.data = {
@@ -23,17 +23,20 @@ exports = module.exports = function (req, res) {
 
 		if (locals.filters.topic) {
 			keystone.list('ExplanationTopic').model.findOne({ slug: locals.filters.topic }).exec(function(err, result) {
-				locals.data.topic = result;
-				if (locals.filters.explanation) {
-					keystone.list('Explanation').model
-									.find({ slug: locals.filters.explanation })
-									.where('topic').in([locals.data.topic.id])
-									.populate('topic')
-									.exec(function(err, results) {
 
-						locals.data.currentExplanation = results[0];
+				if(result) {
+					locals.data.topic = result;
+					if (locals.filters.explanation) {
+						keystone.list('Explanation').model
+										.find({ slug: locals.filters.explanation })
+										.where('topic').in([locals.data.topic.id])
+										.populate('topic')
+										.exec(function(err, results) {
 
-					});
+							locals.data.currentExplanation = results[0];
+
+						});
+					}
 				}
 				next(err);
 			});
@@ -52,8 +55,7 @@ exports = module.exports = function (req, res) {
 				maxPages: 10
 			})
 			.where('state', 'published')
-			.sort('name')
-			.populate('topics');
+			.sort('name');
 
 		if (locals.data.topic) {
 			q.where('topic').in([locals.data.topic]);

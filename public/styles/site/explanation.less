@@ -1,3 +1,31 @@
+.explanations-heading {
+  border-top: solid 1px fade(@secondary, 20%);
+  border-bottom: solid 1px fade(@secondary, 20%);
+  text-align: center;
+  padding: 1em 0;
+}
+
+.explanation-subject {
+  background: @primary;
+  color: @tertiary;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: @font-secondary;
+  font-size: 1.5em;
+  font-weight: 200;
+  height: 10em;
+  padding: 0 2em;
+  text-align: center;
+  text-decoration: none;
+  &:hover, &:active {
+    background-color: @tertiary;
+    border: solid 1px @primary;
+    color: @primary;
+    text-decoration: none;
+  }
+}
+
 .explanation {
   .topic-name {
     border-top: solid 1px fade(@secondary, 20%);
@@ -7,5 +35,41 @@
     font-size: 3em;
     font-weight: 100;
     line-height: 200%;
+  }
+
+  .explanation-content {
+    border-right: solid 1px fade(@secondary, 20%);
+    padding-right: 1em;
+  }
+
+  .explanation-option {
+    line-height: 150%;
+    margin: 1.5em 0;
+
+    .explanation-link {
+      color: @primary;
+      font-size: 1.15em;
+      font-weight: 100;
+      line-height: 100%;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  table {
+    margin: 2em 0;
+
+    td, th {
+      border: solid 1px fade(@secondary, 20%);
+    }
+
+    td {
+      padding: 1em;
+    }
+    th {
+      padding: 0 1em;
+    }
   }
 }

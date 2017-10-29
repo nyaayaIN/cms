@@ -8,7 +8,7 @@
 	</div>
 	<div class="row">
 			<div class="col-md-9">
-				<article id="content">
+				<article id="content" class="explanation-content">
 					{{#if data.currentExplanation}}
 						<h2>{{data.currentExplanation.title}}</h2>
 						{{{	data.currentExplanation.content.html }}}
@@ -20,15 +20,17 @@
 			</div>
 
 				<div class="col-md-3">
-					<div id="contents">
+					<div id="contents" class="topic-contents">
 						<h2>Contents</h2>
-						
-						<h4><a href="/explanations/sexual-harassment-of-women-at-work/">Summary</a></h4>
+
+						<div class="explanation-option">
+							<a class="explanation-link" href="/explanations/{{ data.topic.slug }}/">Summary</a>
+						</div>
 						{{# each data.explanations.results}}
 							<div class="explanation-option">
-								<h4><a href="/explanations/sexual-harassment-of-women-at-work/{{slug}}">
+								<a class="explanation-link" href="/explanations/{{ @root.data.topic.slug }}/{{slug}}">
 									{{{title}}}
-								</a></h4>
+								</a>
 							</div>
 						{{/each}}
 					</div>
