@@ -1,0 +1,18 @@
+<div class="container">
+	<h1>Laws</h1>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12 col-md-9">
+			<p class="text-weight-normal">Showing {{ data.laws.results.length}} act(s).</p>
+			<div class="laws">
+				{{# each data.laws.results}}
+				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="act">
+					<h4><a href="/laws/act/{{slug}}">{{{title}}}</a></h4>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	{{>pagination}}
+</div>

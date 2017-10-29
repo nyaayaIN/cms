@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<article>
+				<p><a href="/laws">&larr; back to catalogue of laws</a></p>
+				<hr>
+				<header>
+					<h1>{{data.law.title}}</h1>
+					<h5>
+						{{{ jurisdictionList data.law.jurisdiction prefix="jurisdiction: "}}} | {{{categoryList data.law.categories prefix="Category: "}}}
+					</h5>
+					<br />
+					<h4>ACT NO {{ data.law.act }} of {{ data.law.year }}</h4>
+					<h4>Date of Assent: {{{date data.law.dateOfAssent format='DD/MM/YYYY'}}}</h4>
+
+				</header>
+
+				<div class="preamble">{{{data.law.preamble.english}}}</div>
+				<div class="content">{{{data.law.content.english.html}}}</div>
+			</article>
+		</div>
+	</div>
+</div>

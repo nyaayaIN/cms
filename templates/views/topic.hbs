@@ -1,0 +1,37 @@
+<div class="container explanation">
+	<div class="row">
+		<div class="col-sm-12">
+				<header class="topic-name">
+					{{data.topic.name}}
+				</header>
+		</div>
+	</div>
+	<div class="row">
+			<div class="col-md-9">
+				<article id="content">
+					{{#if data.currentExplanation}}
+						<h2>{{data.currentExplanation.title}}</h2>
+						{{{	data.currentExplanation.content.html }}}
+					{{else}}
+						<h2>Summary</h2>
+						{{{data.topic.summary.html}}}
+					{{/if}}
+				</article>
+			</div>
+
+				<div class="col-md-3">
+					<div id="contents">
+						<h2>Contents</h2>
+						
+						<h4><a href="/explanations/sexual-harassment-of-women-at-work/">Summary</a></h4>
+						{{# each data.explanations.results}}
+							<div class="explanation-option">
+								<h4><a href="/explanations/sexual-harassment-of-women-at-work/{{slug}}">
+									{{{title}}}
+								</a></h4>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+	</div>
+</div>
