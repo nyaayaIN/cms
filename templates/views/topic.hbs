@@ -9,31 +9,23 @@
 	<div class="row">
 			<div class="col-md-9">
 				<article id="content" class="explanation-content">
-					<div id="summary" class="explanation-section">
-						<h2>Summary</h2>
-						{{{data.topic.summary.html}}}
+					<div id="{{data.content.slug}}" class="explanation-section">
+						<h2>{{data.content.title}}</h2>
+						{{{ data.content.html }}}
 						<a href="#explanation" class="back-to-top">Back to Top</a>
 					</div>
-					{{# each data.explanations.results}}
-						<div id="{{slug}}" class="explanation-section">
-							<h2>{{title}}</h2>
-							{{{ content.html }}}
-							<a href="#explanation" class="back-to-top">Back to Top</a>
-						</div>
-					{{/each}}
 				</article>
 			</div>
 
 				<div class="col-md-3">
 					<div id="contents" class="topic-contents">
 						<h2>Contents</h2>
-
 						<div class="explanation-option">
-							<a class="explanation-link" href="/explanations/{{ data.topic.slug }}/">Summary</a>
+							<a class="explanation-link" href="/explanations/{{data.topic.slug}}">Summary</a>
 						</div>
-						{{# each data.explanations.results}}
+						{{# each data.explanations}}
 							<div class="explanation-option">
-								<a class="explanation-link" href="#{{slug}}">
+								<a class="explanation-link" href="/explanations/{{ @root.data.topic.slug }}/{{slug}}">
 									{{{title}}}
 								</a>
 							</div>

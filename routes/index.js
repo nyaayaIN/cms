@@ -33,12 +33,15 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
+	app.disable('etag');
+
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/laws/', routes.views.laws);
 	app.get('/laws/act/:act', routes.views.act);
 	app.get('/explanations/', routes.views.explanations);
 	app.get('/explanations/:topic', routes.views.topic);
+	app.get('/explanations/:topic/:explanation', routes.views.topic);
 	app.all('/contact', routes.views.contact);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
