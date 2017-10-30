@@ -3,6 +3,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.btn {
+  background: @primary;
+  border: solid 1px darken(@primary, 10%);
+  color: @tertiary;
+  text-decoration: none;
+  &:hover, &:active {
+    background: darken(@primary, 10%);
+  }
+}
+
 .header {
 	padding: 1em 0;
 

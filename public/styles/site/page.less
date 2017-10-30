@@ -1,0 +1,22 @@
+.hero {
+  background: url(/images/hero.jpg) center center no-repeat;
+  background-size: cover;
+  height: 70vh;
+  margin-bottom: 2.5em;
+
+  .headline {
+    background: rgba(0,0,0,0.35);
+    color: @tertiary;
+    display: flex;
+    flex-direction: column;
+    font-family: @font-primary;
+    font-size: 2.5em;
+    height: 100%;
+    justify-content: center;
+    line-height: 1.5em;
+    text-align: center;
+		@media (min-width: 768px){
+      padding: 0 5em;
+    }
+  }
+}
