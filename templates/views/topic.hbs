@@ -1,4 +1,4 @@
-<div class="container explanation">
+<div class="container explanation" id="explanation">
 	<div class="row">
 		<div class="col-sm-12">
 				<header class="topic-name">
@@ -9,13 +9,18 @@
 	<div class="row">
 			<div class="col-md-9">
 				<article id="content" class="explanation-content">
-					{{#if data.currentExplanation}}
-						<h2>{{data.currentExplanation.title}}</h2>
-						{{{	data.currentExplanation.content.html }}}
-					{{else}}
+					<div id="summary" class="explanation-section">
 						<h2>Summary</h2>
 						{{{data.topic.summary.html}}}
-					{{/if}}
+						<a href="#explanation" class="back-to-top">Back to Top</a>
+					</div>
+					{{# each data.explanations.results}}
+						<div id="{{slug}}" class="explanation-section">
+							<h2>{{title}}</h2>
+							{{{ content.html }}}
+							<a href="#explanation" class="back-to-top">Back to Top</a>
+						</div>
+					{{/each}}
 				</article>
 			</div>
 
@@ -28,7 +33,7 @@
 						</div>
 						{{# each data.explanations.results}}
 							<div class="explanation-option">
-								<a class="explanation-link" href="/explanations/{{ @root.data.topic.slug }}/{{slug}}">
+								<a class="explanation-link" href="#{{slug}}">
 									{{{title}}}
 								</a>
 							</div>
