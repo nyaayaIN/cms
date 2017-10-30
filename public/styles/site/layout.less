@@ -14,6 +14,8 @@
 }
 
 .header {
+  background: @primary;
+  margin-bottom: 1em;
 	padding: 1em 0;
 
 	.branding {
@@ -25,17 +27,20 @@
 
 		.logo {
 			@media (min-width: 768px){
-				background: url('/images/logo.svg') center bottom no-repeat;
+				background: url('/images/inverse-logo.svg') center bottom no-repeat;
 				display: block;
-				height: 2em;
+				height: 1.1em;
 				margin: 0;
 				padding: 0;
-				width: 3.3em;
+				width: 2.3em;
 			}
 		}
 		.text {
-			font-family: @font-primary;
-			line-height: 0;
+      color: @tertiary;
+      display: block;
+      font-family: 'Alice',serif;
+      line-height: 1em;
+      font-size: 0.7em;
 		}
 	}
 	.navbar {
@@ -44,7 +49,7 @@
 		margin: 0;
 	}
 	.nav {
-		margin-top: 5.35em;
+		margin-top: 2.1em;
 
 		li {
 			font-family: @font-primary;
@@ -54,6 +59,7 @@
 			margin-left: 1em;
 
 			a {
+        color: @tertiary;
 				padding: 0.5em;
 				text-decoration: none;
 			}
@@ -65,7 +71,8 @@
 			background: none;
 			a {
 				background: none;
-				color: @primary;
+				color: @tertiary;
+        text-decoration: underline;
 			}
 		}
 	}

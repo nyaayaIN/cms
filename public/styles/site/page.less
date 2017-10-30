@@ -1,22 +1,56 @@
 .hero {
-  background: url(/images/hero.jpg) center center no-repeat;
+  background: url(/images/maze.svg) center top no-repeat;
   background-size: cover;
-  height: 70vh;
-  margin-bottom: 2.5em;
+  height: 60vh;
+  margin-bottom: 0;
+}
+.hero-headline {
+  color: @tertiary;
+  background: @hero-maze;
+  font-family: @font-primary;
+  font-size: 2.5em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  padding-bottom: 1em;
+  text-align: center;
+}
 
-  .headline {
-    background: rgba(0,0,0,0.35);
+.popular-content {
+  border-top: solid 1px fade(@secondary, 20%);
+  border-bottom: solid 1px fade(@secondary, 20%);
+  margin: 5em 0 2em;
+  padding-bottom: 5em;
+  text-align: center;
+  h1 {
+    margin: 1.5em 0;
+  }
+}
+
+.explanation-tile {
+  border: solid 1px @primary;
+  color: @primary;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 5em;
+  justify-content: center;
+  line-height: 1.25em;
+  padding: 0 1em;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    background: @primary;
     color: @tertiary;
-    display: flex;
-    flex-direction: column;
-    font-family: @font-primary;
-    font-size: 2.5em;
-    height: 100%;
-    justify-content: center;
-    line-height: 1.5em;
-    text-align: center;
-		@media (min-width: 768px){
-      padding: 0 5em;
-    }
+    text-decoration: none;
+  }
+}
+
+.recent-laws {
+  padding: 0;
+
+  .law {
+    list-style-type: none;
+    margin: 1em 0;
   }
 }
