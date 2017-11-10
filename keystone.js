@@ -19,15 +19,6 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'hbs',
-
-	'custom engine': handlebars.create({
-		layoutsDir: 'templates/views/layouts',
-		partialsDir: 'templates/views/partials',
-		defaultLayout: 'default',
-		helpers: new require('./templates/views/helpers')(),
-		extname: '.hbs',
-	}).engine,
-
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -57,9 +48,8 @@ keystone.Email.defaults.templateEngine = require('handlebars');
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	laws: ['laws', 'law-categories', 'law-jurisdictions'],
-	explanations: ['explanations', 'explanation-topics'],
-	enquiries: 'enquiries',
+	pages: ['static-pages'],
+	topics: ['categories', 'topics','explanations','questions','terms','checklists'],
 	users: 'users',
 });
 
