@@ -7,11 +7,11 @@
  * module.exports = function(done) { ... }
  */
 
-// exports.create = {
-// 	User: [
-// 		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'fake@fake.com', 'password': 'fake', 'isAdmin': true },
-// 	],
-// };
+exports.create = {
+	User: [
+		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'saurabh@nyaaya.in', 'password': 'admin', 'isAdmin': true },
+	],
+};
 
 /*
 
