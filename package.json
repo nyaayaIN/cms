@@ -7,16 +7,19 @@
     "dotenv": "4.0.0",
     "keystone": "4.0.0-beta.5",
     "lodash": "^4.13.1",
-    "mocha": "^4.0.1",
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
     "eslint": "3.15.0",
     "eslint-config-keystone": "3.0.0",
-    "eslint-plugin-react": "^5.1.1"
+    "eslint-plugin-react": "^5.1.1",
+    "mocha": "^4.0.1"
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node keystone.js"
+    "start": "node keystone.js",
+    "test" : "./node_modules/.bin/mocha tests/init.js tests/unit/**" 
   }
 }

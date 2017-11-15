@@ -5,26 +5,12 @@ require('dotenv').config();
 // Require keystone
 var keystone = require('keystone');
 
+var keystoneInit = require('./config.js').keystoneInit;
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
-keystone.init({
-	'name': 'nyaaya_cms',
-	'brand': 'nyaaya_cms',
-
-	'less': 'public',
-	'static': 'public',
-	'favicon': 'public/favicon.ico',
-	'views': 'templates/views',
-	'view engine': 'pug',
-
-	'auto update': true,
-	'session': true,
-	'auth': true,
-	'user model': 'User',
-
-});
+keystone.init(keystoneInit);
 
 // Load your project's Models
 keystone.import('models');
