@@ -7,11 +7,14 @@
  * module.exports = function(done) { ... }
  */
 
-// exports.create = {
-// 	User: [
-// 		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'fake@fake.com', 'password': 'fake', 'isAdmin': true },
-// 	],
-// };
+
+
+//This is a demo account; please update before running keystone. 
+exports.create = {
+	User: [
+		{ 'name.first': 'Admin', 'name.last': 'User', 'email': ' contact@nyaaya.in', 'password': 'fake', 'isAdmin': true },
+	],
+};
 
 /*
 
