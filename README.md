@@ -1,10 +1,10 @@
 # Nyaaya CMS
 
-Keystone.js based CMS for handling the backend of nyaaya-web. 
+[Keystone.js](http://keystonejs.com)based CMS for handling the backend of nyaaya-web. 
 
 ## Running locally
 
-	- node version : 8.9.1 LTS; 
+	- node version : 8.9.1 LTS; Keystone Version : 4.0beta
 
     - add the MONGO_URI setting to the .env file with mongodb instance credentials
 

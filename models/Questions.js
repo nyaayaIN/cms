@@ -7,24 +7,24 @@ var Types = keystone.Field.Types;
  */
 
 var Questions = new keystone.List('Questions', {
-	map: { name: 'question.EN' },
-	autokey: { path: 'slug', from: 'question.EN', unique: false},
+    map: { name: 'question.EN' },
+    autokey: { path: 'slug', from: 'question.EN', unique: false },
 });
 
 Questions.add({
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'User', index: true },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
-	question: {
-		EN: {type: String, required: true},
-		HI: {type: String}
-	},
-	answer: {
-		EN: {type: String},
-		HI: {type: String}
-	},
-  topic: { type: Types.Relationship, ref: 'Topic', many: true },
-	tags: { type: Types.TextArray}
+    state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
+    author: { type: Types.Relationship, ref: 'User', index: true },
+    publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+    question: {
+        EN: { type: String, required: true },
+        HI: { type: String }
+    },
+    answer: {
+        EN: { type: String },
+        HI: { type: String }
+    },
+    topic: { type: Types.Relationship, ref: 'Topic', many: true },
+    tags: { type: Types.TextArray }
 });
 
 Questions.defaultSort = 'title';

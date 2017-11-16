@@ -6,21 +6,21 @@ var Types = keystone.Field.Types;
  * =======================
  */
 
- var Topic = new keystone.List('Topic', {
- 	autokey: { path: 'slug', from: 'name.EN', unique: true }
- });
+var Topic = new keystone.List('Topic', {
+    autokey: { path: 'slug', from: 'name.EN', unique: true }
+});
 
- Topic.add({
- 	name: {
-    EN: { type: Types.Markdown },
-    HI: { type: Types.Markdown }
-  },
-  summary: {
-    EN: { type: Types.Markdown },
-    HI: { type: Types.Markdown }
-  }
- });
+Topic.add({
+    name: {
+        EN: { type: Types.Markdown },
+        HI: { type: Types.Markdown }
+    },
+    summary: {
+        EN: { type: Types.Markdown },
+        HI: { type: Types.Markdown }
+    }
+});
 
- Topic.relationship({ ref: 'Explanation', path: 'topics' });
+Topic.relationship({ ref: 'Explanation', path: 'topics' });
 
- Topic.register();
+Topic.register();
