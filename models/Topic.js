@@ -12,8 +12,8 @@ var Topic = new keystone.List('Topic', {
 
 Topic.add({
     name: {
-        EN: { type: Types.Markdown },
-        HI: { type: Types.Markdown }
+        EN: { type: String, initial: true, required: true },
+        HI: { type: String }
     },
     summary: {
         EN: { type: Types.Markdown },

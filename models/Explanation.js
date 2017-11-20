@@ -29,3 +29,4 @@ Explanation.add({
 
 Explanation.defaultColumns = 'name, topic|25%, kind|15%';
 Explanation.register();
+
