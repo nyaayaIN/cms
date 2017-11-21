@@ -6,22 +6,22 @@ var Types = keystone.Field.Types;
  * =======================
  */
 
- var Category = new keystone.List('Category', {
- 	map: { name: 'name.EN' },
- 	autokey: { path: 'slug', from: 'name.EN', unique: true }
- });
+var Category = new keystone.List('Category', {
+    map: { name: 'name.EN' },
+    autokey: { path: 'slug', from: 'name.EN', unique: true }
+});
 
- Category.add({
- 	name:{
-    EN: { type: String, required: true },
-    HI: { type: String }
-  },
-  description: {
-    EN: { type: Types.Markdown },
-    HI: { type: Types.Markdown }
-  }
- });
+Category.add({
+    name: {
+        EN: { type: String, required: true },
+        HI: { type: String }
+    },
+    description: {
+        EN: { type: Types.Markdown },
+        HI: { type: Types.Markdown }
+    }
+});
 
- Category.relationship({ ref: 'Topic', path: 'category' });
+Category.relationship({ ref: 'Topic', path: 'category' });
 
- Category.register();
+Category.register();
