@@ -16,11 +16,11 @@ Terms.add({
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
     term: {
-        EN: { type: String, required: true },
+        EN: { type: String, initial: true, required: true },
         HI: { type: String }
     },
     definition: {
-        EN: { type: String },
+        EN: { type: String, initial: true, required : true },
         HI: { type: String },
     },
     topic: { type: Types.Relationship, ref: 'Topic', many: true },
