@@ -8,22 +8,22 @@ jobs:
     steps:
       - checkout
       - run:
-          name: update-npm
+          name: Update npm
           command: 'sudo npm install -g npm@latest'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-npm-wee
+          name: Install npm 
           command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
-          name: test
+          name: Running Tests
           command: npm test
       - run:
-          name: code-coverage
+          name: Running Code Coverage
           command: './node_modules/.bin/nyc --reporter=lcov --reporter=text-lcov npm test'
       - store_artifacts:
           path: coverage
