@@ -21,6 +21,6 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node keystone.js",
-    "test": "mocha tests/init.js tests/unit/**"
+    "test": "mocha -R json-stream tests/init.js tests/unit/** >test-results.json"
   }
 }
