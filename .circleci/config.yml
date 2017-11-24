@@ -7,29 +7,49 @@ jobs:
       - image: mongo:3.4.4
     steps:
       - checkout
-      # - run:
-      #     name: Install AWSCLI
-      #     command: 'sudo apt-get install -y python-pip && pip install -y awscli --upgrade --user'
       - run:
-          name: Update NPM
+          name: Update npm
           command: 'sudo npm install -g npm@latest'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Install npm 
+          name: Install npm wee
           command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ./node_modules
+            - node_modules
+  test:
+    docker:
+      - image: circleci/node:4.8.2
+      - image: mongo:3.4.4
+    steps:
+      - checkout
       - run:
-          name: Running Tests
+          name: Test
           command: npm test
       - run:
-          name: Running Code Coverage
-          command: './node_modules/.bin/nyc --reporter=lcov --reporter=text-lcov npm test'
+          name: Generate code coverage
+          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      - store_artifacts:
+          path: test-results.json
+          prefix: tests
       - store_artifacts:
           path: coverage
           prefix: coverage
-      - store_test_results:
-          path: test-results.json
+      
+  deployment:
+    staging:
+      branch: development
+    dependencies:
+      pre:
+        - sudo apt-get install python-dev
+        - sudo pip install --upgrade pip
+        - sudo pip install awsebcli
+    steps:
+      - run:
+          name: Setup AWS credentials
+          command: 'mkdir ~/.aws && printf "[profile eb-cli]\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/config'
+      -run:
+          name: Deploy to Elastic Beanstalk
+          command: eb deploy environment-name
