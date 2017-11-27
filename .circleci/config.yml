@@ -39,17 +39,17 @@ jobs:
           prefix: coverage
       
   deployment:
-    staging:
-      branch: development
     dependencies:
       pre:
-        - sudo apt-get install python-dev
-        - sudo pip install --upgrade pip
-        - sudo pip install awsebcli
+        - 'sudo apt-get install python-dev'
+        - 'sudo pip install --upgrade pip'
+        - 'sudo pip install awsebcli'
+    staging:
+      branch: development
     steps:
       - run:
           name: Setup AWS credentials
           command: 'mkdir ~/.aws && printf "[profile eb-cli]\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/config'
       -run:
           name: Deploy to Elastic Beanstalk
-          command: eb deploy environment-name
+          command: eb deploy 
