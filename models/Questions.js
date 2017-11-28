@@ -8,7 +8,7 @@ var Types = keystone.Field.Types;
 
 var Questions = new keystone.List('Questions', {
     map: { name: 'question.EN' },
-    autokey: { path: 'slug', from: 'question.EN', unique: false },
+    autokey: { path: 'slug', from: 'question.EN', unique: true },
 });
 
 Questions.add({
@@ -20,13 +20,13 @@ Questions.add({
         HI: { type: String }
     },
     answer: {
-        EN: { type: String },
-        HI: { type: String }
+        EN: { type: Types.Markdown },
+        HI: { type: Types.Markdown }
     },
     topic: { type: Types.Relationship, ref: 'Topic', many: true },
     tags: { type: Types.TextArray }
 });
 
-Questions.defaultSort = 'title';
-Questions.defaultColumns = 'title, state, topic';
+Questions.defaultSort = 'question.EN';
+Questions.defaultColumns = 'question.EN|60%, state|10%, topic';
 Questions.register();

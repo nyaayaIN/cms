@@ -10,4 +10,6 @@
 
     - add a random, peferably long, string to encrypt the session in the COOKIE_SECRET setting in the .env file
 
+    - Customize the admin user to your own before applying the updates. Keystone applies updates only the first time the instance runs.   
+
     - npm install && npm start
