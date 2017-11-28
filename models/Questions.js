@@ -20,8 +20,8 @@ Questions.add({
         HI: { type: String }
     },
     answer: {
-        EN: { type: String },
-        HI: { type: String }
+        EN: { type: Types.Markdown },
+        HI: { type: Types.Markdown }
     },
     topic: { type: Types.Relationship, ref: 'Topic', many: true },
     tags: { type: Types.TextArray }

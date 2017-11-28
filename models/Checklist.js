@@ -16,6 +16,7 @@ Checklist.add({
         EN: { type: String, required: true },
         HI: { type: String }
     },
+    descriptor : { type: String },  
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
