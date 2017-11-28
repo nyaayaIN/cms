@@ -7,13 +7,13 @@ var Types = keystone.Field.Types;
  */
 
 var Explanation = new keystone.List('Explanation', {
-    map: { name: 'title.EN' },
-    autokey: { path: 'slug', from: 'title.EN', unique: false },
+    autokey: { path: 'slug', from: 'title.EN', unique: true },
+    map: { name: 'title.EN' }
 });
 
 Explanation.add({
     title: {
-        EN: { type: String, required: true },
+        EN: { type: String, required: true, initial: true },
         HI: { type: String }
     },
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
@@ -27,5 +27,5 @@ Explanation.add({
     tags: { type: Types.TextArray }
 });
 
-Explanation.defaultColumns = 'name, topic|25%, kind|15%';
+Explanation.defaultColumns = 'title.EN|60%, topics|20%, state, author';
 Explanation.register();

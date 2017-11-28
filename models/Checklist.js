@@ -8,7 +8,7 @@ var Types = keystone.Field.Types;
 
 var Checklist = new keystone.List('Checklist', {
     map: { name: 'title.EN' },
-    autokey: { path: 'slug', from: 'title.EN', unique: false },
+    autokey: { path: 'slug', from: 'title.EN', unique: true },
 });
 
 Checklist.add({
@@ -16,6 +16,7 @@ Checklist.add({
         EN: { type: String, required: true },
         HI: { type: String }
     },
+    descriptor : { type: String },  
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
@@ -25,5 +26,5 @@ Checklist.add({
     tags: { type: Types.TextArray }
 });
 
-Checklist.defaultColumns = 'name, topic|25%, kind|15%';
+Checklist.defaultColumns = 'title.EN, topic|15%, kind|15%';
 Checklist.register();
