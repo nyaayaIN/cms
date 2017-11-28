@@ -22,6 +22,5 @@ Category.add({
     }
 });
 
-Category.relationship({ ref: 'Topic', path: 'category' });
-
+Category.relationship({ ref: 'Topic', path: 'topic', refPath: 'category' });
 Category.register();

@@ -8,7 +8,7 @@ var Types = keystone.Field.Types;
 
 var Checklist = new keystone.List('Checklist', {
     map: { name: 'title.EN' },
-    autokey: { path: 'slug', from: 'title.EN', unique: false },
+    autokey: { path: 'slug', from: 'title.EN', unique: true },
 });
 
 Checklist.add({
@@ -25,5 +25,5 @@ Checklist.add({
     tags: { type: Types.TextArray }
 });
 
-Checklist.defaultColumns = 'name, topic|25%, kind|15%';
+Checklist.defaultColumns = 'title.EN, topic|15%, kind|15%';
 Checklist.register();

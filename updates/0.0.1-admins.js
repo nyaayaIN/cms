@@ -12,7 +12,7 @@
 //This is a demo account; please update before running keystone. 
 exports.create = {
 	User: [
-		{ 'name.first': 'Admin', 'name.last': 'User', 'email': ' contact@nyaaya.in', 'password': 'fake', 'isAdmin': true },
+		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'contact@nyaaya.in', 'password': 'fake', 'isAdmin': true },
 	],
 };
 

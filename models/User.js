@@ -24,9 +24,10 @@ User.schema.virtual('canAccessKeystone').get(function() {
 /**
  * Relationships
  */
-User.relationship({ ref: 'Law', path: 'posts', refPath: 'author' });
-
-
+User.relationship({ ref: 'Explanation', path: 'explanation', refPath: 'author' });
+User.relationship({ ref: 'Terms', path: 'term', refPath: 'author'   });
+User.relationship({ ref: 'Questions', path: 'question', refPath: 'author'   });
+User.relationship({ ref: 'Checklist', path: 'Checklist', refPath: 'author'   });
 /**
  * Registration
  */
