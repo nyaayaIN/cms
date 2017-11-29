@@ -1,15 +1,60 @@
 # Nyaaya CMS
 
-[Keystone.js](http://keystonejs.com) Version : 4.0beta based CMS for handling the backend of nyaaya-web. 
+[Keystone.js](http://keystonejs.com) Version : 4.0 beta based CMS for handling the backend of nyaaya-web.
+
+## Requirements
+
+You wil need:
+* [Node 8](https://nodejs.org/en/download/)
+* [MongoDB](https://docs.mongodb.com/manual/installation/)
 
 ## Running locally
 
-	- node version : 8.9.1 LTS;  
+#### Clone this repo
 
-    - add the MONGO_URI setting to the .env file with mongodb instance credentials; this can be your local db or hosted on server. 
+```
+git clone git@github.com:nyaayaIN/cms.git
+```
 
-    - add a random, peferably long, string to encrypt the session in the COOKIE_SECRET setting in the .env file
+#### Install Dependencies
 
-    - Customize the admin user to your own before applying the updates. Keystone applies updates only the first time the instance runs.   
+```
+npm install
+```
 
-    - npm install && npm start
+or if you have [yarn installed](https://yarnpkg.com/en/docs/install) you could run
+
+```
+yarn
+```
+#### Start mongodb
+In a new bash session
+
+```
+mongod
+```
+
+#### Set Environment varibles
+Create an env file for environment variables in this repo
+```
+touch .env
+```
+and add the following
+```
+NODE_ENV=development
+COOKIE_SECRET=YOURSECRET
+MONGO_URI=mongodb://localhost/cms
+PORT=3000
+```
+
+#### Start the Application
+Keystone will create a DB called `cms` and set up the appropriate collections necessary as well as an admin user.
+
+#### Use the CMS
+
+Login at [http://localhost:3000/keystone/signin](http://localhost:3000/keystone/signin) with
+```
+Username: contact@nyaaya.in
+Password: fake
+```
+---
