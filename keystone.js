@@ -5,7 +5,7 @@ require('dotenv').config();
 // Require keystone
 var keystone = require('keystone');
 
-var keystoneInit = require('./config.js').keystoneInit;
+var keystoneInit = require('./config');
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.

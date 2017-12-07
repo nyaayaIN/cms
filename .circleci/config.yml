@@ -1,55 +1,10 @@
 version: 2
 jobs:
   build:
+    docker:
+      - image: circleci/node:8
     working_directory: ~/cms
-    docker:
-      - image: circleci/node:4.8.2
-      - image: mongo:3.4.4
     steps:
       - checkout
-      - run:
-          name: Update npm
-          command: 'sudo npm install -g npm@latest'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Install npm wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-  test:
-    docker:
-      - image: circleci/node:4.8.2
-      - image: mongo:3.4.4
-    steps:
-      - checkout
-      - run:
-          name: Test
-          command: npm test
-      - run:
-          name: Generate code coverage
-          command: './node_modules/.bin/nyc report --reporter=text-lcov'
-      - store_artifacts:
-          path: test-results.json
-          prefix: tests
-      - store_artifacts:
-          path: coverage
-          prefix: coverage
-      
-  deployment:
-    dependencies:
-      pre:
-        - 'sudo apt-get install python-dev'
-        - 'sudo pip install --upgrade pip'
-        - 'sudo pip install awsebcli'
-    staging:
-      branch: development
-    steps:
-      - run:
-          name: Setup AWS credentials
-          command: 'mkdir ~/.aws && printf "[profile eb-cli]\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/config'
-      -run:
-          name: Deploy to Elastic Beanstalk
-          command: eb deploy 
+      - run: npm install
+      - run: npm test

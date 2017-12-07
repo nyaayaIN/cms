@@ -8,7 +8,7 @@ var chai = require('chai'),
     should = chai.should;
 
 
-var keystoneInit = require('../config.js').keystoneInit;
+var keystoneInit = require('../../config');
 
 keystone.init(keystoneInit);
 

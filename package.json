@@ -11,16 +11,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "chai-http": "^2.0.1",
-    "eslint": "3.15.0",
-    "eslint-config-keystone": "3.0.0",
-    "eslint-plugin-react": "^5.1.1",
-    "mocha": "^4.0.1",
-    "nyc": "^11.3.0"
+    "mocha": "^4.0.1"
   },
   "scripts": {
     "lint": "eslint .",
     "start": "node keystone.js",
-    "test": "mocha -R json-stream tests/init.js tests/unit/** >test-results.json"
+    "test": "mocha tests/unit/**"
   }
 }
