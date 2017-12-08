@@ -1,0 +1,9 @@
+{
+    "extends": "airbnb-base",
+    "overrides": [
+      {
+        "files": [ "bin/*.js", "lib/*.js" ],
+        "excludedFiles": "**/*.spec.js"
+      }
+    ]
+}
