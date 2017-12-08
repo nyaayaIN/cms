@@ -1,0 +1,5 @@
+global:
+  application_name: Nyaaya-CMS
+  default_ec2_keyname: prototype
+  default_region: ap-south-1
+  sc: git
