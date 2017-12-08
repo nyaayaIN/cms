@@ -11,10 +11,13 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "mocha": "^4.0.1"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint models routes keystone.js config.json",
     "start": "node keystone.js",
     "test": "mocha tests/unit/**"
   }

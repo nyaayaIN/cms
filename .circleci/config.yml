@@ -6,5 +6,52 @@ jobs:
     working_directory: ~/cms
     steps:
       - checkout
-      - run: npm install
-      - run: npm test
+      - run:
+          name: install dependencies
+          command: npm install
+      # - run:
+      #     name: check code quality
+      #     command: npm run lint
+      # - run:
+      #     name: verify app starts
+      #     command: npm start
+  test:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/cms
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: npm install
+      - run:
+          name: unit tests
+          command: npm test
+  staging:
+    docker:
+      - image: coxauto/aws-ebcli:latest
+    steps:
+      - checkout
+      - run:
+          name: upgrade AWS CLI
+          command: pip install --upgrade awsebcli
+      - run:
+          name: status of Staging
+          command: eb status staging
+      - run:
+          name: deploy to staging
+          command: eb deploy staging -l $CIRCLE_SHA1
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - staging:
+          requires:
+            - test
+          filters:
+            branches:
+              only: development
