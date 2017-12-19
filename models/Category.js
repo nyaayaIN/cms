@@ -19,7 +19,9 @@ Category.add({
     description: {
         EN: { type: Types.Markdown },
         HI: { type: Types.Markdown }
-    }
+    },
+    categoriesImage: {type:Types.CloudinaryImage, folder: '/category'}
+
 });
 
 Category.relationship({ ref: 'Topic', path: 'topic', refPath: 'category' });
