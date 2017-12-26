@@ -23,6 +23,7 @@ Explanation.add({
         EN: { type: Types.Markdown },
         HI: { type: Types.Markdown }
     },
+    explanationImage: {type:Types.CloudinaryImage, folder: '/explanation'},
     topics: { type: Types.Relationship, ref: 'Topic', many: true },
     tags: { type: Types.TextArray }
 });

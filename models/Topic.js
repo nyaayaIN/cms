@@ -20,6 +20,7 @@ Topic.add({
         EN: { type: Types.Markdown },
         HI: { type: Types.Markdown }
     }, 
+    topicImage: {type:Types.CloudinaryImage, folder: '/topics'},
     category: { type: Types.Relationship, ref: 'Category', many: false }
 });
 
