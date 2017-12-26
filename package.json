@@ -7,6 +7,7 @@
     "dotenv": "4.0.0",
     "keystone": "4.0.0-beta.5",
     "lodash": "^4.13.1",
+    "pm2": "^2.9.1",
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "lint": "eslint models routes keystone.js config.json",
-    "start": "node keystone.js",
+    "start": "pm2 start keystone.js",
     "test": "mocha tests/unit/**"
   }
 }
