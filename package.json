@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "async": "2.1.4",
+    "connect-mongo": "^2.0.0",
     "dotenv": "4.0.0",
+    "file-stream-rotator": "^0.2.0",
     "keystone": "4.0.0-beta.5",
     "lodash": "^4.13.1",
     "pm2": "^2.9.1",
@@ -19,7 +21,7 @@
   },
   "scripts": {
     "lint": "eslint models routes keystone.js config.json",
-    "start": "pm2 start keystone.js",
+    "start": "pm2 reload ecosystem.config.js --env production",
     "test": "mocha tests/unit/**"
   }
 }
