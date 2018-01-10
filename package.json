@@ -21,7 +21,7 @@
   },
   "scripts": {
     "lint": "eslint models routes keystone.js config.json",
-    "start": "pm2 reload ecosystem.config.js --env production",
+    "start": "pm2 start keystone.js",
     "test": "mocha tests/unit/**"
   }
 }
