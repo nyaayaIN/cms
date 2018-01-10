@@ -8,6 +8,10 @@ var Types = keystone.Field.Types;
 
 var Checklist = new keystone.List('Checklist', {
     map: { name: 'title.EN' },
+    track: {createdAt: true,
+            createdBy: true,
+            updatedAt: true,
+            updatedBy: true},
     autokey: { path: 'slug', from: 'title.EN', unique: true },
 });
 

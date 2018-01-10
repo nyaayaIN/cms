@@ -8,6 +8,10 @@ var Types = keystone.Field.Types;
 
 var Explanation = new keystone.List('Explanation', {
     autokey: { path: 'slug', from: 'title.EN', unique: true },
+    track: {createdAt: true,
+            createdBy: true,
+            updatedAt: true,
+            updatedBy: true},
     map: { name: 'title.EN' }
 });
 

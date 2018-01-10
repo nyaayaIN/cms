@@ -8,10 +8,16 @@ var Types = keystone.Field.Types;
 
 var Topic = new keystone.List('Topic', {
     autokey: { path: 'slug', from: 'name.EN', unique: true },
+    track: {createdAt: true,
+            createdBy: true,
+            updatedAt: true,
+            updatedBy: true},
     map: { name: 'name.EN' }
 });
 
 Topic.add({
+    
+    isFeatured: {type: Types.Boolean},
     name: {
         EN: { type: String, initial: true, required: true },
         HI: { type: String }
