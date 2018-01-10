@@ -8,6 +8,10 @@ var Types = keystone.Field.Types;
 
 var StaticPage = new keystone.List('StaticPage', {
     map: { name: 'title.EN' },
+    track: {createdAt: true,
+            createdBy: true,
+            updatedAt: true,
+            updatedBy: true}
 });
 
 StaticPage.add({

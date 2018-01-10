@@ -8,6 +8,10 @@ var Types = keystone.Field.Types;
 
 var Category = new keystone.List('Category', {
     map: { name: 'name.EN' },
+    track: {createdAt: true,
+            createdBy: true,
+            updatedAt: true,
+            updatedBy: true},
     autokey: { path: 'slug', from: 'name.EN', unique: true }
 });
 
