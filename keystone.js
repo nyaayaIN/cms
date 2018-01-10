@@ -10,6 +10,28 @@ var keystoneInit = require('./config');
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
+//Logging starts here. 
+var fs = require('fs');
+var path = require('path');
+var FileStreamRotator = require('file-stream-rotator');
+
+// ensure log directory exists
+var logDirectory = path.join(__dirname, 'log');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+// create a rotating write stream
+var accessLogStream = FileStreamRotator.getStream({
+    date_format: 'YYYYMMDD',
+    filename: logDirectory + '/access-%DATE%.log',
+    frequency: 'daily',
+    verbose: false //if set will log the name of log file when it rotates them on STDOUT. default is TRUE. 
+});
+
+
+//read the source file before updating, documentation is wrong.    
+keystoneInit["logger"] = "combined";
+keystoneInit["logger options"] = {"stream": accessLogStream };
+
 keystone.init(keystoneInit);
 
 // Load your project's Models
