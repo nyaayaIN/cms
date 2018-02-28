@@ -10,7 +10,7 @@ var keystoneInit = require('./config');
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
-//Logging starts here. 
+//Logging starts here.
 var fs = require('fs');
 var path = require('path');
 var FileStreamRotator = require('file-stream-rotator');
@@ -24,11 +24,11 @@ var accessLogStream = FileStreamRotator.getStream({
     date_format: 'YYYYMMDD',
     filename: logDirectory + '/access-%DATE%.log',
     frequency: 'daily',
-    verbose: false //if set will log the name of log file when it rotates them on STDOUT. default is TRUE. 
+    verbose: false //if set will log the name of log file when it rotates them on STDOUT. default is TRUE.
 });
 
 
-//read the source file before updating, documentation is wrong.    
+//read the source file before updating, documentation is wrong.
 keystoneInit["logger"] = "combined";
 keystoneInit["logger options"] = {"stream": accessLogStream };
 
@@ -54,7 +54,7 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
     pages: ['static-pages'],
-    content: ['categories', 'topics', 'explanations', 'questions', 'terms', 'checklists'],
+    content: ['categories', 'topics', 'explanations', 'questions', 'terms'],
     users: 'users',
 });
 

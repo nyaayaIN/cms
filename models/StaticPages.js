@@ -7,18 +7,12 @@ var Types = keystone.Field.Types;
  */
 
 var StaticPage = new keystone.List('StaticPage', {
-    map: { name: 'title.EN' },
+    map: { name: 'title' },
+    autokey: { path: 'slug', from: 'title', unique: true }
 });
 
 StaticPage.add({
-    title: {
-        EN: { type: String, required: true },
-        HI: { type: String }
-    },
-    slug: { type: String, unique: true },
-    state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-    author: { type: Types.Relationship, ref: 'User', index: true },
-    publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+    title: { type: String, required: true },
     keys: { type: Types.TextArray },
     content: {
         EN: { type: Types.TextArray },
@@ -26,5 +20,5 @@ StaticPage.add({
     }
 });
 
-StaticPage.defaultColumns = 'name, topic|25%, kind|15%';
+StaticPage.defaultColumns = 'title, slug';
 StaticPage.register();

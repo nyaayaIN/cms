@@ -16,17 +16,15 @@ Explanation.add({
         EN: { type: String, required: true, initial: true },
         HI: { type: String }
     },
-    state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-    author: { type: Types.Relationship, ref: 'User', index: true },
-    publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
     content: {
-        EN: { type: Types.Markdown },
-        HI: { type: Types.Markdown }
+        EN: { type: Types.Markdown, height: 250 },
+        HI: { type: Types.Markdown, height: 250 }
     },
     explanationImage: {type:Types.CloudinaryImage, folder: '/explanation'},
     topics: { type: Types.Relationship, ref: 'Topic', many: true },
     tags: { type: Types.TextArray }
 });
 
-Explanation.defaultColumns = 'title.EN|60%, topics|20%, state, author';
+Explanation.defaultSort = 'topics';
+Explanation.defaultColumns = 'title.EN|60%, topics|20%, tags';
 Explanation.register();

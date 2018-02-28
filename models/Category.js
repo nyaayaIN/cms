@@ -25,4 +25,5 @@ Category.add({
 });
 
 Category.relationship({ ref: 'Topic', path: 'topic', refPath: 'category' });
+Category.defaultColumns = 'name.EN, name.HI';
 Category.register();

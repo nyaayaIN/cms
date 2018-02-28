@@ -12,9 +12,6 @@ var Terms = new keystone.List('Terms', {
 });
 
 Terms.add({
-    state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-    author: { type: Types.Relationship, ref: 'User', index: true },
-    publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
     term: {
         EN: { type: String, initial: true, required: true },
         HI: { type: String }
@@ -28,5 +25,5 @@ Terms.add({
 });
 
 Terms.defaultSort = 'term.EN';
-Terms.defaultColumns = 'term.EN, state, publishedDate';
+Terms.defaultColumns = 'term.EN, topic';
 Terms.register();

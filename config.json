@@ -8,6 +8,6 @@
   "auto update": true,
   "session": true,
   "auth": true,
-  "user model": "User", 
-  "signin logo" : ["../chivo.png", 400, 250]
+  "user model": "User",
+  "signin logo" : ["../images/logo.png", 250, 250]
 }
