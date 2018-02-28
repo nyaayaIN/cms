@@ -12,9 +12,6 @@ var Questions = new keystone.List('Questions', {
 });
 
 Questions.add({
-    state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-    author: { type: Types.Relationship, ref: 'User', index: true },
-    publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
     question: {
         EN: { type: String, required: true },
         HI: { type: String }
@@ -27,6 +24,6 @@ Questions.add({
     tags: { type: Types.TextArray }
 });
 
-Questions.defaultSort = 'question.EN';
-Questions.defaultColumns = 'question.EN|60%, state|10%, topic';
+Questions.defaultSort = 'topic';
+Questions.defaultColumns = 'question.EN|60%, topic';
 Questions.register();

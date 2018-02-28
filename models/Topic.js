@@ -19,13 +19,18 @@ Topic.add({
     summary: {
         EN: { type: Types.Markdown },
         HI: { type: Types.Markdown }
-    }, 
+    },
     topicImage: {type:Types.CloudinaryImage, folder: '/topics'},
-    category: { type: Types.Relationship, ref: 'Category', many: false }
+    category: { type: Types.Relationship, ref: 'Category', many: false },
+    state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
+    author: { type: Types.Relationship, ref: 'User', index: true },
+    publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+    featured: {type: Types.Boolean }
 });
 
-Topic.relationship({ ref: 'Checklist',  path: 'checklist', refPath: 'topics' });
 Topic.relationship({ ref: 'Explanation', path: 'explanation', refPath: 'topics' });
 Topic.relationship({ ref: 'Questions', path: 'question', refPath: 'topic' });
 Topic.relationship({ ref: 'Terms', path: 'term', refPath: 'topic' });
+
+Topic.defaultColumns = 'name.EN|60%, category|20%, state, author';
 Topic.register();
