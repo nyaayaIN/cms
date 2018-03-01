@@ -9,7 +9,11 @@ var Types = keystone.Field.Types;
 var StaticPage = new keystone.List('StaticPage', {
     perPage: 25,
     map: { name: 'title' },
-    autokey: { path: 'slug', from: 'title', unique: true }
+    autokey: { path: 'slug', from: 'title', unique: true },
+    track: { createdAt: true,
+             createdBy: true,
+             updatedAt: true,
+             updatedBy: true }
 });
 
 StaticPage.add({

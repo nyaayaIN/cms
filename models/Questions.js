@@ -10,6 +10,10 @@ var Questions = new keystone.List('Questions', {
     perPage: 25,
     map: { name: 'question.EN' },
     autokey: { path: 'slug', from: 'question.EN', unique: true },
+    track: { createdAt: true,
+             createdBy: true,
+             updatedAt: true,
+             updatedBy: true }
 });
 
 Questions.add({
