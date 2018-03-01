@@ -7,6 +7,7 @@ var Types = keystone.Field.Types;
  */
 
 var Questions = new keystone.List('Questions', {
+    perPage: 25,
     map: { name: 'question.EN' },
     autokey: { path: 'slug', from: 'question.EN', unique: true },
 });
@@ -17,8 +18,8 @@ Questions.add({
         HI: { type: String }
     },
     answer: {
-        EN: { type: Types.Markdown },
-        HI: { type: Types.Markdown }
+        EN: { type: Types.Markdown, height: 250 },
+        HI: { type: Types.Markdown, height: 250 }
     },
     topic: { type: Types.Relationship, ref: 'Topic', many: true },
     tags: { type: Types.TextArray }

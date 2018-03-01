@@ -7,6 +7,7 @@ var Types = keystone.Field.Types;
  */
 
 var Terms = new keystone.List('Terms', {
+    perPage: 25,
     map: { name: 'term.EN' },
     autokey: { path: 'slug', from: 'title.EN', unique: true },
 });
