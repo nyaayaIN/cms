@@ -10,6 +10,10 @@ var Terms = new keystone.List('Terms', {
     perPage: 25,
     map: { name: 'term.EN' },
     autokey: { path: 'slug', from: 'title.EN', unique: true },
+    track: { createdAt: true,
+             createdBy: true,
+             updatedAt: true,
+             updatedBy: true }
 });
 
 Terms.add({

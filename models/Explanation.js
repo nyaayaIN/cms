@@ -9,7 +9,11 @@ var Types = keystone.Field.Types;
 var Explanation = new keystone.List('Explanation', {
     perPage: 25,
     autokey: { path: 'slug', from: 'title.EN', unique: true },
-    map: { name: 'title.EN' }
+    map: { name: 'title.EN' },
+    track: { createdAt: true,
+             createdBy: true,
+             updatedAt: true,
+             updatedBy: true }
 });
 
 Explanation.add({

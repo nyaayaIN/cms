@@ -9,7 +9,11 @@ var Types = keystone.Field.Types;
 var Topic = new keystone.List('Topic', {
     perPage: 25,
     autokey: { path: 'slug', from: 'name.EN', unique: true },
-    map: { name: 'name.EN' }
+    map: { name: 'name.EN' },
+    track: { createdAt: true,
+             createdBy: true,
+             updatedAt: true,
+             updatedBy: true }
 });
 
 Topic.add({
