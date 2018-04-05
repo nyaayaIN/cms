@@ -22,6 +22,7 @@
   "scripts": {
     "lint": "eslint models routes keystone.js config.json",
     "start": "pm2 start keystone.js",
+    "stop": "pm2 stop keystone.js",
     "test": "mocha tests/unit/**"
   }
 }

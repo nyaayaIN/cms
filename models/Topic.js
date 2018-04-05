@@ -25,6 +25,7 @@ Topic.add({
         EN: { type: Types.Markdown },
         HI: { type: Types.Markdown }
     },
+    sources: { type: Types.TextArray },
     topicImage: {type:Types.CloudinaryImage, folder: '/topics'},
     category: { type: Types.Relationship, ref: 'Category', many: false },
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
