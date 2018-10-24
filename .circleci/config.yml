@@ -27,7 +27,7 @@ jobs:
       - run:
           name: unit tests
           command: npm test
-  staging:
+  production:
     docker:
       - image: coxauto/aws-ebcli:latest
     steps:
@@ -36,11 +36,11 @@ jobs:
           name: upgrade AWS CLI
           command: pip install --upgrade awsebcli
       - run:
-          name: status of Staging
-          command: eb status staging
+          name: status of Production
+          command: eb status PRODUCTION
       - run:
-          name: deploy to staging
-          command: eb deploy staging -l $CIRCLE_SHA1
+          name: deploy to production
+          command: eb deploy PRODUCTION -l $CIRCLE_SHA1
 workflows:
   version: 2
   build-test-deploy:
@@ -49,7 +49,7 @@ workflows:
       - test:
           requires:
             - build
-      - staging:
+      - production:
           requires:
             - test
           filters:
