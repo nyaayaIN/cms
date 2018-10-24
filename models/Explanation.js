@@ -25,6 +25,7 @@ Explanation.add({
         EN: { type: Types.Markdown, height: 250 },
         HI: { type: Types.Markdown, height: 250 }
     },
+    order: { type: Types.Number },
     explanationImage: {type:Types.CloudinaryImage, folder: '/explanation'},
     topics: { type: Types.Relationship, ref: 'Topic', many: true },
     tags: { type: Types.TextArray }
