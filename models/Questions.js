@@ -25,7 +25,12 @@ Questions.add({
         EN: { type: Types.Markdown, height: 250 },
         HI: { type: Types.Markdown, height: 250 }
     },
+    source: {
+        EN: { type: Types.TextArray },
+        HI: { type: Types.TextArray }
+    },
     topic: { type: Types.Relationship, ref: 'Topic', many: true },
+    explanation: { type: Types.Relationship, ref: 'Explanation', many: true },
     tags: { type: Types.TextArray }
 });
 
